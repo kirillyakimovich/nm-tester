@@ -18,6 +18,7 @@
 		EBE6A0881F793E8F001F643E /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE6A0861F793E8E001F643E /* Loader.swift */; };
 		EBE6A0891F793E8F001F643E /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE6A0871F793E8E001F643E /* Resource.swift */; };
 		EBE6A08B1F793F58001F643E /* Webloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE6A08A1F793F58001F643E /* Webloader.swift */; };
+		EBE6A0911F79447B001F643E /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE6A0901F79447B001F643E /* ActivityIndicator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		EBE6A0861F793E8E001F643E /* Loader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		EBE6A0871F793E8E001F643E /* Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		EBE6A08A1F793F58001F643E /* Webloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Webloader.swift; sourceTree = "<group>"; };
+		EBE6A0901F79447B001F643E /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 			children = (
 				EBE6A0871F793E8E001F643E /* Resource.swift */,
 				EBE6A0861F793E8E001F643E /* Loader.swift */,
+				EBE6A0901F79447B001F643E /* ActivityIndicator.swift */,
 				EBE6A08A1F793F58001F643E /* Webloader.swift */,
 			);
 			path = Services;
@@ -177,6 +180,7 @@
 				EBE6A0781F792CA3001F643E /* Schedule.swift in Sources */,
 				EBE6A0821F793B0F001F643E /* ProgramGuide.swift in Sources */,
 				EBE6A0891F793E8F001F643E /* Resource.swift in Sources */,
+				EBE6A0911F79447B001F643E /* ActivityIndicator.swift in Sources */,
 				EBE6A08B1F793F58001F643E /* Webloader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

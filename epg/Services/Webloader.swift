@@ -8,10 +8,17 @@
 
 import Foundation
 
-class Webloader: Loader {
+final class Webloader: Loader {
+    let activityIndicator: ActivityIndicator?
+    init(activityIndicator: ActivityIndicator? = nil) {
+        self.activityIndicator = activityIndicator
+    }
+    
     func load<A>(resource: Resource<A>,
                  completion: @escaping (A?) -> Void) {
+        activityIndicator?.activityStarted()
         URLSession.shared.dataTask(with: resource.url) { [weak self] (data, response, error) in
+            self?.activityIndicator?.activityFinished()
             guard let response = response as? HTTPURLResponse,
                 response.statusCode == 200,
                 error == nil,
