@@ -1,5 +1,5 @@
 //
-//  WebLoader.swift
+//  Webloader.swift
 //  epg
 //
 //  Created by Yakimovich, Kirill on 9/25/17.
@@ -8,10 +8,10 @@
 
 import Foundation
 
-final class WebLoader: Loader {
+class Webloader: Loader {
     func load<A>(resource: Resource<A>,
                  completion: @escaping (A?) -> Void) {
-        URLSession.shared.dataTask(with: resource.url) { (data, response, error) in
+        URLSession.shared.dataTask(with: resource.url) { [weak self] (data, response, error) in
             guard let response = response as? HTTPURLResponse,
                 response.statusCode == 200,
                 error == nil,
