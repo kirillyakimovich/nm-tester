@@ -14,4 +14,3 @@ struct Schedule: Codable {
     let start: Date
     let end: Date
 }
-

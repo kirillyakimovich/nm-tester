@@ -19,14 +19,9 @@ extension Resource where A: Decodable {
         self.parse = { data in
             let jsonDecoder = JSONDecoder()
             jsonDecoder.dateDecodingStrategy = .iso8601
-            do {
-                let resource = try jsonDecoder.decode(A.self, from: data)
-                return resource
-            } catch {
-                print(error)
-            }
+            let resource = try? jsonDecoder.decode(A.self, from: data)
 
-            return nil
+            return resource
         }
     }
 }
