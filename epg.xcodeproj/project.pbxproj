@@ -70,6 +70,17 @@
 			path = Coordinators;
 			sourceTree = "<group>";
 		};
+		EB6F3E041F7A772B00E1C233 /* Loading */ = {
+			isa = PBXGroup;
+			children = (
+				EBE6A0871F793E8E001F643E /* Resource.swift */,
+				EBE6A0861F793E8E001F643E /* Loader.swift */,
+				EBE6A0901F79447B001F643E /* ActivityIndicator.swift */,
+				EBE6A08A1F793F58001F643E /* Webloader.swift */,
+			);
+			path = Loading;
+			sourceTree = "<group>";
+		};
 		EBE6A0581F7928ED001F643E = {
 			isa = PBXGroup;
 			children = (
@@ -115,11 +126,7 @@
 		EBE6A0851F793E8E001F643E /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				EBE6A0871F793E8E001F643E /* Resource.swift */,
-				EBE6A0861F793E8E001F643E /* Loader.swift */,
-				EBE6A0901F79447B001F643E /* ActivityIndicator.swift */,
-				EBE6A08A1F793F58001F643E /* Webloader.swift */,
-				EBE6A0921F794588001F643E /* UIActivityIndicator.swift */,
+				EB6F3E041F7A772B00E1C233 /* Loading */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -127,6 +134,7 @@
 		EBE6A0951F794FCA001F643E /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				EBE6A0921F794588001F643E /* UIActivityIndicator.swift */,
 				EBD4FC0A1F7956EB003F869B /* ProgramGuideForDayViewModel.swift */,
 				EBE6A0981F7950B8001F643E /* ProgramGuideForDayViewController.swift */,
 				EBE6A09C1F7954DA001F643E /* ProgramCellViewModel.swift */,
