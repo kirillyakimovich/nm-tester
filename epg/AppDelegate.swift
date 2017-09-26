@@ -20,8 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window!.rootViewController = navigationController
 
         let appSettingsService = AppSettingsService.default()
+        let loader = Webloader(activityIndicator: UIActivityIndicator())
         appCoordinator = AppCoordinator(navigationController: navigationController,
-                                        appSettingsService: appSettingsService)
+                                        appSettingsService: appSettingsService,
+                                        loader: loader)
         appCoordinator.start()
         window!.makeKeyAndVisible()
 

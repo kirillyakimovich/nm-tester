@@ -12,7 +12,28 @@ protocol ProgramGuideService {
     func programGuide(completion: @escaping (ProgramGuide?) -> Void)
 }
 
-class ProgramGuideRESTService {}
+class ProgramGuideRESTService {
+    let loader: Loader
+    let baseURL: URL
+
+    init(loader: Loader, baseURL: URL) {
+        self.loader = loader
+        self.baseURL = baseURL
+    }
+}
+
+extension ProgramGuideRESTService {
+    private var programGuideURL: URL {
+        return baseURL.appendingPathComponent("epg")
+    }
+
+    func programGuide(completion: @escaping (ProgramGuide?) -> Void) {
+        let resource = Resource<ProgramGuide>(url: programGuideURL)
+        loader.load(resource: resource, completion: completion)
+    }
+}
+
+extension ProgramGuideRESTService: ProgramGuideService {}
 
 class DummyProgramGuideService: ProgramGuideService {
     func programGuide(completion: @escaping (ProgramGuide?) -> Void) {

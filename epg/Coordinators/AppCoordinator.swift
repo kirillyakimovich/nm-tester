@@ -11,18 +11,23 @@ import UIKit
 final class AppCoordinator: Coordinator {
     let navigationController: UINavigationController
     let appSettingsService: AppSettingsService
+    let loader: Loader
 
     init(navigationController: UINavigationController,
-         appSettingsService: AppSettingsService) {
+         appSettingsService: AppSettingsService,
+         loader: Loader) {
         self.navigationController = navigationController
         self.appSettingsService = appSettingsService
+        self.loader = loader
     }
 
     func start() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let controller = storyboard.instantiateViewController(withIdentifier: "ProgramGuideForDayViewController") as? ProgramGuideForDayViewController else { return }
 
-        controller.viewModel = ProgramGuideForDayViewModel(dataModel: DummyProgramGuideService(),
+        let programGuideService = ProgramGuideRESTService(loader: loader,
+                                                          baseURL: appSettingsService.baseURL)
+        controller.viewModel = ProgramGuideForDayViewModel(dataModel: programGuideService,
                                                            delegate: controller)
         navigationController.viewControllers = [controller]
     }
