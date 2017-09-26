@@ -11,7 +11,7 @@ import UIKit
 private let reuseIdentifier = "ProgramCell"
 
 class ProgramGuideForDayViewController: UICollectionViewController {
-    var viewModel: ProgramGuideForDayViewModel! = ProgramGuideForDayViewModel.dummy()
+    var viewModel: ProgramGuideForDayViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
