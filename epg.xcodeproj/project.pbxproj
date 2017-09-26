@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EBD4FC0B1F7956EB003F869B /* ProgramGuideForDayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD4FC0A1F7956EB003F869B /* ProgramGuideForDayViewModel.swift */; };
 		EBE6A0651F7928ED001F643E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE6A0641F7928ED001F643E /* AppDelegate.swift */; };
 		EBE6A0671F7928ED001F643E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE6A0661F7928ED001F643E /* ViewController.swift */; };
 		EBE6A06A1F7928ED001F643E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBE6A0681F7928ED001F643E /* Main.storyboard */; };
@@ -20,9 +21,13 @@
 		EBE6A08B1F793F58001F643E /* Webloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE6A08A1F793F58001F643E /* Webloader.swift */; };
 		EBE6A0911F79447B001F643E /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE6A0901F79447B001F643E /* ActivityIndicator.swift */; };
 		EBE6A0931F794588001F643E /* UIActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE6A0921F794588001F643E /* UIActivityIndicator.swift */; };
+		EBE6A0991F7950B8001F643E /* ProgramGuideForDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE6A0981F7950B8001F643E /* ProgramGuideForDayViewController.swift */; };
+		EBE6A09B1F795184001F643E /* ProgramCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE6A09A1F795184001F643E /* ProgramCell.swift */; };
+		EBE6A09D1F7954DA001F643E /* ProgramCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE6A09C1F7954DA001F643E /* ProgramCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EBD4FC0A1F7956EB003F869B /* ProgramGuideForDayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramGuideForDayViewModel.swift; sourceTree = "<group>"; };
 		EBE6A0611F7928ED001F643E /* epg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = epg.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBE6A0641F7928ED001F643E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EBE6A0661F7928ED001F643E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -38,6 +43,9 @@
 		EBE6A08A1F793F58001F643E /* Webloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Webloader.swift; sourceTree = "<group>"; };
 		EBE6A0901F79447B001F643E /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		EBE6A0921F794588001F643E /* UIActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIActivityIndicator.swift; sourceTree = "<group>"; };
+		EBE6A0981F7950B8001F643E /* ProgramGuideForDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramGuideForDayViewController.swift; sourceTree = "<group>"; };
+		EBE6A09A1F795184001F643E /* ProgramCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramCell.swift; sourceTree = "<group>"; };
+		EBE6A09C1F7954DA001F643E /* ProgramCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +80,7 @@
 			children = (
 				EBE6A0851F793E8E001F643E /* Services */,
 				EBE6A0761F792C7F001F643E /* Models */,
+				EBE6A0951F794FCA001F643E /* UI */,
 				EBE6A0641F7928ED001F643E /* AppDelegate.swift */,
 				EBE6A0661F7928ED001F643E /* ViewController.swift */,
 				EBE6A0681F7928ED001F643E /* Main.storyboard */,
@@ -102,6 +111,17 @@
 				EBE6A0921F794588001F643E /* UIActivityIndicator.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		EBE6A0951F794FCA001F643E /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				EBD4FC0A1F7956EB003F869B /* ProgramGuideForDayViewModel.swift */,
+				EBE6A0981F7950B8001F643E /* ProgramGuideForDayViewController.swift */,
+				EBE6A09C1F7954DA001F643E /* ProgramCellViewModel.swift */,
+				EBE6A09A1F795184001F643E /* ProgramCell.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,13 +199,17 @@
 				EBE6A0671F7928ED001F643E /* ViewController.swift in Sources */,
 				EBE6A07A1F792F22001F643E /* Channel.swift in Sources */,
 				EBE6A0881F793E8F001F643E /* Loader.swift in Sources */,
+				EBE6A09D1F7954DA001F643E /* ProgramCellViewModel.swift in Sources */,
 				EBE6A0931F794588001F643E /* UIActivityIndicator.swift in Sources */,
 				EBE6A0651F7928ED001F643E /* AppDelegate.swift in Sources */,
 				EBE6A0781F792CA3001F643E /* Schedule.swift in Sources */,
+				EBD4FC0B1F7956EB003F869B /* ProgramGuideForDayViewModel.swift in Sources */,
 				EBE6A0821F793B0F001F643E /* ProgramGuide.swift in Sources */,
 				EBE6A0891F793E8F001F643E /* Resource.swift in Sources */,
 				EBE6A0911F79447B001F643E /* ActivityIndicator.swift in Sources */,
+				EBE6A09B1F795184001F643E /* ProgramCell.swift in Sources */,
 				EBE6A08B1F793F58001F643E /* Webloader.swift in Sources */,
+				EBE6A0991F7950B8001F643E /* ProgramGuideForDayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
