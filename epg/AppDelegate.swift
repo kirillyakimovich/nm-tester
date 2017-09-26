@@ -19,7 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow()
         window!.rootViewController = navigationController
 
-        appCoordinator = AppCoordinator(navigationController: navigationController)
+        let appSettingsService = AppSettingsService.default()
+        appCoordinator = AppCoordinator(navigationController: navigationController,
+                                        appSettingsService: appSettingsService)
         appCoordinator.start()
         window!.makeKeyAndVisible()
 

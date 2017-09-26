@@ -8,26 +8,43 @@
 
 import Foundation
 
-struct ProgramGuideForDayViewModel {
-    let programViewModels: [ProgramCellViewModel]
+protocol ProgramGuideForDayViewModelDelegate: class {
+    func dataUpdated()
+}
+
+final class ProgramGuideForDayViewModel {
+    let dataModel: ProgramGuideService
+    weak var delegate: ProgramGuideForDayViewModelDelegate?
+
+    var programViewModels: [ProgramCellViewModel]? {
+        didSet {
+            delegate?.dataUpdated()
+        }
+    }
+
+    init(dataModel: ProgramGuideService, delegate: ProgramGuideForDayViewModelDelegate?) {
+        self.dataModel = dataModel
+        self.delegate = delegate
+    }
+
+    func load() {
+        dataModel.programGuide { [weak self] guide in
+            self?.programViewModels = guide?.channels.flatMap({ channel  in
+                return channel.schedules.flatMap { ProgramCellViewModel(schedule: $0) }
+            })
+        }
+    }
+
     var numberOfChannels: Int {
         return 1
     }
 
     func numberOfProgrammsInChannel(at index: Int) -> Int {
-        return programViewModels.count
+        return (programViewModels?.count) ?? 0
     }
 
     func program(for channel: Int, at index: Int) -> ProgramCellViewModel {
+        guard let programViewModels = self.programViewModels else { fatalError() }
         return programViewModels[index]
-    }
-}
-
-extension ProgramGuideForDayViewModel {
-    static func dummy() -> ProgramGuideForDayViewModel {
-        let programModel = ProgramCellViewModel(title: "Interesting Show",
-                                                schedule: "14:30 - 16:30")
-        let dummy = ProgramGuideForDayViewModel(programViewModels: [programModel])
-        return dummy
     }
 }

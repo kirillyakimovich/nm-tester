@@ -12,3 +12,10 @@ struct ProgramCellViewModel {
     let title: String
     let schedule: String
 }
+
+extension ProgramCellViewModel {
+    init(schedule: Schedule) {
+        self.title = schedule.title
+        self.schedule = "10:00 - 12:00"
+    }
+}

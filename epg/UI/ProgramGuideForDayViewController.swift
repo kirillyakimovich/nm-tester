@@ -15,6 +15,7 @@ class ProgramGuideForDayViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.load()
     }
 
     // MARK: UICollectionViewDataSource
@@ -45,5 +46,13 @@ class ProgramGuideForDayViewController: UICollectionViewController {
 extension ProgramGuideForDayViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 200, height: 200)
+    }
+}
+
+extension ProgramGuideForDayViewController: ProgramGuideForDayViewModelDelegate {
+    func dataUpdated() {
+        DispatchQueue.main.async {
+            self.collectionView?.reloadData()
+        }
     }
 }

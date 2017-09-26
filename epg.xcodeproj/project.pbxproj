@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		EB6F3E011F7A71C300E1C233 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6F3E001F7A71C300E1C233 /* AppCoordinator.swift */; };
 		EB6F3E031F7A71E000E1C233 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6F3E021F7A71E000E1C233 /* Coordinator.swift */; };
+		EB6F3E071F7A77A800E1C233 /* AppSettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6F3E061F7A77A800E1C233 /* AppSettingsService.swift */; };
+		EB8CACDF1F7A82A00012E372 /* ProgramGuideRESTService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8CACDE1F7A82A00012E372 /* ProgramGuideRESTService.swift */; };
 		EBD4FC0B1F7956EB003F869B /* ProgramGuideForDayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD4FC0A1F7956EB003F869B /* ProgramGuideForDayViewModel.swift */; };
 		EBE6A0651F7928ED001F643E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE6A0641F7928ED001F643E /* AppDelegate.swift */; };
 		EBE6A06A1F7928ED001F643E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBE6A0681F7928ED001F643E /* Main.storyboard */; };
@@ -30,6 +32,8 @@
 /* Begin PBXFileReference section */
 		EB6F3E001F7A71C300E1C233 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		EB6F3E021F7A71E000E1C233 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		EB6F3E061F7A77A800E1C233 /* AppSettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsService.swift; sourceTree = "<group>"; };
+		EB8CACDE1F7A82A00012E372 /* ProgramGuideRESTService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramGuideRESTService.swift; sourceTree = "<group>"; };
 		EBD4FC0A1F7956EB003F869B /* ProgramGuideForDayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramGuideForDayViewModel.swift; sourceTree = "<group>"; };
 		EBE6A0611F7928ED001F643E /* epg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = epg.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBE6A0641F7928ED001F643E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +85,22 @@
 			path = Loading;
 			sourceTree = "<group>";
 		};
+		EB6F3E051F7A779400E1C233 /* AppSettings */ = {
+			isa = PBXGroup;
+			children = (
+				EB6F3E061F7A77A800E1C233 /* AppSettingsService.swift */,
+			);
+			path = AppSettings;
+			sourceTree = "<group>";
+		};
+		EB8CACDD1F7A7AD30012E372 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				EB8CACDE1F7A82A00012E372 /* ProgramGuideRESTService.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		EBE6A0581F7928ED001F643E = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +146,8 @@
 		EBE6A0851F793E8E001F643E /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				EB8CACDD1F7A7AD30012E372 /* Data */,
+				EB6F3E051F7A779400E1C233 /* AppSettings */,
 				EB6F3E041F7A772B00E1C233 /* Loading */,
 			);
 			path = Services;
@@ -219,8 +241,10 @@
 				EBE6A0881F793E8F001F643E /* Loader.swift in Sources */,
 				EB6F3E031F7A71E000E1C233 /* Coordinator.swift in Sources */,
 				EBE6A09D1F7954DA001F643E /* ProgramCellViewModel.swift in Sources */,
+				EB8CACDF1F7A82A00012E372 /* ProgramGuideRESTService.swift in Sources */,
 				EBE6A0931F794588001F643E /* UIActivityIndicator.swift in Sources */,
 				EBE6A0651F7928ED001F643E /* AppDelegate.swift in Sources */,
+				EB6F3E071F7A77A800E1C233 /* AppSettingsService.swift in Sources */,
 				EBE6A0781F792CA3001F643E /* Schedule.swift in Sources */,
 				EB6F3E011F7A71C300E1C233 /* AppCoordinator.swift in Sources */,
 				EBD4FC0B1F7956EB003F869B /* ProgramGuideForDayViewModel.swift in Sources */,
