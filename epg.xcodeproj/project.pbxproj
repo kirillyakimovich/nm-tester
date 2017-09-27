@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB2D4C9A1F7BFEAC000C52CA /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2D4C991F7BFEAC000C52CA /* Date.swift */; };
+		EB2D4C9C1F7BFED3000C52CA /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2D4C9B1F7BFED3000C52CA /* DateFormatter.swift */; };
 		EB3C3AB41F7BE33B00A2C4DC /* ProgramGuideForDayLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3C3AB31F7BE33B00A2C4DC /* ProgramGuideForDayLayout.swift */; };
 		EB3C3AB61F7BE35800A2C4DC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3C3AB51F7BE35800A2C4DC /* Constants.swift */; };
 		EB6F3E011F7A71C300E1C233 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6F3E001F7A71C300E1C233 /* AppCoordinator.swift */; };
@@ -32,6 +34,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EB2D4C991F7BFEAC000C52CA /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		EB2D4C9B1F7BFED3000C52CA /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		EB3C3AB31F7BE33B00A2C4DC /* ProgramGuideForDayLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgramGuideForDayLayout.swift; sourceTree = "<group>"; };
 		EB3C3AB51F7BE35800A2C4DC /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		EB6F3E001F7A71C300E1C233 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
@@ -69,6 +73,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EB2D4C981F7BFE9E000C52CA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EB2D4C991F7BFEAC000C52CA /* Date.swift */,
+				EB2D4C9B1F7BFED3000C52CA /* DateFormatter.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		EB6F3DFF1F7A71AE00E1C233 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +137,7 @@
 		EBE6A0631F7928ED001F643E /* epg */ = {
 			isa = PBXGroup;
 			children = (
+				EB2D4C981F7BFE9E000C52CA /* Extensions */,
 				EB6F3DFF1F7A71AE00E1C233 /* Coordinators */,
 				EBE6A0851F793E8E001F643E /* Services */,
 				EBE6A0761F792C7F001F643E /* Models */,
@@ -246,6 +260,7 @@
 				EBE6A07A1F792F22001F643E /* Channel.swift in Sources */,
 				EB3C3AB61F7BE35800A2C4DC /* Constants.swift in Sources */,
 				EBE6A0881F793E8F001F643E /* Loader.swift in Sources */,
+				EB2D4C9C1F7BFED3000C52CA /* DateFormatter.swift in Sources */,
 				EB6F3E031F7A71E000E1C233 /* Coordinator.swift in Sources */,
 				EBE6A09D1F7954DA001F643E /* ProgramCellViewModel.swift in Sources */,
 				EB8CACDF1F7A82A00012E372 /* ProgramGuideRESTService.swift in Sources */,
@@ -254,6 +269,7 @@
 				EB6F3E071F7A77A800E1C233 /* AppSettingsService.swift in Sources */,
 				EB3C3AB41F7BE33B00A2C4DC /* ProgramGuideForDayLayout.swift in Sources */,
 				EBE6A0781F792CA3001F643E /* Schedule.swift in Sources */,
+				EB2D4C9A1F7BFEAC000C52CA /* Date.swift in Sources */,
 				EB6F3E011F7A71C300E1C233 /* AppCoordinator.swift in Sources */,
 				EBD4FC0B1F7956EB003F869B /* ProgramGuideForDayViewModel.swift in Sources */,
 				EBE6A0821F793B0F001F643E /* ProgramGuide.swift in Sources */,
