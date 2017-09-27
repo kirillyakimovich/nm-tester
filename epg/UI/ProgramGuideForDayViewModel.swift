@@ -16,7 +16,7 @@ final class ProgramGuideForDayViewModel {
     let dataModel: ProgramGuideService
     weak var delegate: ProgramGuideForDayViewModelDelegate?
 
-    var programViewModels: [ProgramCellViewModel]? {
+    var channelViewModels: [ChannelViewModel]? {
         didSet {
             delegate?.dataUpdated()
         }
@@ -29,22 +29,24 @@ final class ProgramGuideForDayViewModel {
 
     func load() {
         dataModel.programGuide { [weak self] guide in
-            self?.programViewModels = guide?.channels.first.map ({ channel  in
-                return channel.schedules.flatMap { ProgramCellViewModel(schedule: $0) }
-            })
+            self?.channelViewModels = guide?.channels.flatMap {
+                let programViewModels = $0.schedules.flatMap { ProgramCellViewModel(schedule: $0) }
+                return ChannelViewModel(programViewModels: programViewModels)
+            }
         }
     }
 
     var numberOfChannels: Int {
-        return 1
+        return (channelViewModels?.count) ?? 0
     }
 
     func numberOfProgrammsInChannel(at index: Int) -> Int {
-        return (programViewModels?.count) ?? 0
+        guard let channelViewModels = channelViewModels else { return 0 }
+        return channelViewModels[index].programViewModels.count
     }
 
     func program(for channel: Int, at index: Int) -> ProgramCellViewModel {
-        guard let programViewModels = self.programViewModels else { fatalError() }
-        return programViewModels[index]
+        guard let channelViewModels = channelViewModels else { fatalError() }
+        return channelViewModels[channel].programViewModels[index]
     }
 }
