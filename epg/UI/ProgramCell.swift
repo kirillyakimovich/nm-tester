@@ -15,7 +15,7 @@ class ProgramCell: UICollectionViewCell {
     var viewModel: ProgramCellViewModel! {
         didSet {
             titleLabel.text = viewModel.title
-            scheduleLabel.text = viewModel.schedule
+            scheduleLabel.text = viewModel.timing
         }
     }
 }

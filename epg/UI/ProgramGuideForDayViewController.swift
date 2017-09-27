@@ -15,18 +15,19 @@ class ProgramGuideForDayViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let layout = collectionView?.collectionViewLayout as? ProgramGuideForDayLayout {
+            layout.delegate = self
+        }
         viewModel.load()
     }
 
     // MARK: UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return viewModel.numberOfChannels
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
         return viewModel.numberOfProgrammsInChannel(at: section)
     }
 
@@ -43,9 +44,13 @@ class ProgramGuideForDayViewController: UICollectionViewController {
     }
 }
 
-extension ProgramGuideForDayViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 200, height: 200)
+extension ProgramGuideForDayViewController: ProgramGuideForDayLayoutDelegate {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout: ProgramGuideForDayLayout,
+                        dimensionForScheduleAtIndexPath indexPath: IndexPath) -> (CGFloat, CGFloat) {
+        let itemViewModel = viewModel.program(for: indexPath.section,
+                                          at: indexPath.row)
+        return (CGFloat(itemViewModel.startInMinutes) * Sizes.minuteWidth, CGFloat(itemViewModel.durationInMinutes) * Sizes.minuteWidth)
     }
 }
 
