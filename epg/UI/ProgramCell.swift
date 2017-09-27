@@ -16,6 +16,9 @@ class ProgramCell: UICollectionViewCell {
         didSet {
             titleLabel.text = viewModel.title
             scheduleLabel.text = viewModel.timing
+
+            layer.borderColor = UIColor(named: "SubtitleGray")!.cgColor
+            layer.borderWidth = 1
         }
     }
 }
