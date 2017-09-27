@@ -11,11 +11,23 @@ import Foundation
 struct ProgramCellViewModel {
     let title: String
     let schedule: String
+
+    static let formatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.timeZone = NSTimeZone.default
+        formatter.dateStyle = .none
+        formatter.timeStyle = .short
+        formatter.dateFormat = "HH:mm"
+        return formatter
+    }()
 }
 
 extension ProgramCellViewModel {
     init(schedule: Schedule) {
         self.title = schedule.title
-        self.schedule = "10:00 - 12:00"
+        let schedule = ProgramCellViewModel.formatter.string(from: schedule.start) +
+            " - " +
+            ProgramCellViewModel.formatter.string(from: schedule.end)
+        self.schedule = schedule
     }
 }

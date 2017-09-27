@@ -29,7 +29,7 @@ final class ProgramGuideForDayViewModel {
 
     func load() {
         dataModel.programGuide { [weak self] guide in
-            self?.programViewModels = guide?.channels.flatMap({ channel  in
+            self?.programViewModels = guide?.channels.first.map ({ channel  in
                 return channel.schedules.flatMap { ProgramCellViewModel(schedule: $0) }
             })
         }

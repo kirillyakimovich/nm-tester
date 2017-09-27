@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private var appCoordinator: AppCoordinator!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        NSTimeZone.default = TimeZone(secondsFromGMT: 60 * 60)!
         window = UIWindow()
         window!.rootViewController = navigationController
 
