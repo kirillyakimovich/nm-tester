@@ -86,6 +86,28 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		EB47A1441F7D2F4D00E3A2B1 /* ProgramGuide */ = {
+			isa = PBXGroup;
+			children = (
+				EB47A1451F7D2F6F00E3A2B1 /* ViewModels */,
+				EBE6A09A1F795184001F643E /* ProgramCell.swift */,
+				EB1AD5B21F7CF50B00BD7290 /* NowSupplementaryView.swift */,
+				EB3C3AB31F7BE33B00A2C4DC /* ProgramGuideForDayLayout.swift */,
+				EBE6A0981F7950B8001F643E /* ProgramGuideForDayViewController.swift */,
+			);
+			path = ProgramGuide;
+			sourceTree = "<group>";
+		};
+		EB47A1451F7D2F6F00E3A2B1 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				EBE6A09C1F7954DA001F643E /* ProgramCellViewModel.swift */,
+				EB6E9D4B1F7BFFB1004F8C83 /* ChannelViewModel.swift */,
+				EBD4FC0A1F7956EB003F869B /* ProgramGuideForDayViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		EB6F3DFF1F7A71AE00E1C233 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,13 +202,7 @@
 			children = (
 				EB3C3AB51F7BE35800A2C4DC /* Constants.swift */,
 				EBE6A0921F794588001F643E /* UIActivityIndicator.swift */,
-				EB3C3AB31F7BE33B00A2C4DC /* ProgramGuideForDayLayout.swift */,
-				EBD4FC0A1F7956EB003F869B /* ProgramGuideForDayViewModel.swift */,
-				EB6E9D4B1F7BFFB1004F8C83 /* ChannelViewModel.swift */,
-				EBE6A0981F7950B8001F643E /* ProgramGuideForDayViewController.swift */,
-				EBE6A09C1F7954DA001F643E /* ProgramCellViewModel.swift */,
-				EBE6A09A1F795184001F643E /* ProgramCell.swift */,
-				EB1AD5B21F7CF50B00BD7290 /* NowSupplementaryView.swift */,
+				EB47A1441F7D2F4D00E3A2B1 /* ProgramGuide */,
 			);
 			path = UI;
 			sourceTree = "<group>";
