@@ -12,12 +12,17 @@ protocol ProgramGuideForDayLayoutDelegate: class {
     func collectionView(_ collectionView: UICollectionView,
                         layout: ProgramGuideForDayLayout,
                         dimensionForScheduleAtIndexPath indexPath:IndexPath) -> (CGFloat, CGFloat)
+    func collectionView(_ collectionView: UICollectionView,
+                        layout: ProgramGuideForDayLayout,
+                        xPositionForNowSupplementaryViewAtIndexPath indexPath:IndexPath) -> CGFloat
 }
 
 class ProgramGuideForDayLayout: UICollectionViewLayout {
     weak var delegate: ProgramGuideForDayLayoutDelegate?
 
     private var cache = [UICollectionViewLayoutAttributes]()
+    private var supplementaryCache = [String: [IndexPath: UICollectionViewLayoutAttributes]]()
+    private var nowAttributes: UICollectionViewLayoutAttributes!
     private var contentSize: CGSize = CGSize(width: 0, height: 0)
 
     override func prepare() {
@@ -29,6 +34,16 @@ class ProgramGuideForDayLayout: UICollectionViewLayout {
         let width = Sizes.dayWidth
 
         contentSize = CGSize(width: width, height: height)
+
+        let indexPath = IndexPath(row: 0, section: 0)
+        let nowAttributes = UICollectionViewLayoutAttributes(forSupplementaryViewOfKind: SupplementaryViews.now.rawValue,
+                                                             with: indexPath)
+        let xPositionForNowView = delegate.collectionView(collectionView,
+                                                          layout: self,
+                                                          xPositionForNowSupplementaryViewAtIndexPath: indexPath)
+        nowAttributes.frame = CGRect(x: xPositionForNowView, y: 0, width: 2, height: height)
+        nowAttributes.zIndex = 1
+        supplementaryCache[SupplementaryViews.now.rawValue] = [indexPath: nowAttributes]
 
         var yOffset: CGFloat = 0
         for channel in 0..<collectionView.numberOfSections {
@@ -61,10 +76,23 @@ class ProgramGuideForDayLayout: UICollectionViewLayout {
                 visibleLayoutAttributes.append(attributes)
             }
         }
+        if !visibleLayoutAttributes.isEmpty {
+            for attributesKind in supplementaryCache.values {
+                for attributes in attributesKind.values {
+                    if attributes.frame.intersects(rect) {
+                        visibleLayoutAttributes.append(attributes)
+                    }
+                }
+            }
+        }
         return visibleLayoutAttributes
     }
 
     override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
         return cache[indexPath.item]
+    }
+
+    override func layoutAttributesForSupplementaryView(ofKind elementKind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+        return supplementaryCache[elementKind]?[indexPath]
     }
 }

@@ -15,4 +15,16 @@ extension Date {
         let minutesFromMidnight = components.hour! * 60 + components.minute!
         return minutesFromMidnight
     }
+
+    static func alignedNow() -> Date {
+        let currentSecondsFromGMT = TimeZone.current.secondsFromGMT()
+        let defaultSecondsFromGMT = NSTimeZone.default.secondsFromGMT()
+        let difference = currentSecondsFromGMT - defaultSecondsFromGMT
+        let date = Date(timeIntervalSinceNow: TimeInterval(difference))
+        return date
+    }
+
+    static func currentMinutes() -> Int {
+        return alignedNow().minutesFromMidnight
+    }
 }

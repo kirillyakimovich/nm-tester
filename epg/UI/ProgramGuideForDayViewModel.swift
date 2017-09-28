@@ -10,6 +10,7 @@ import Foundation
 
 protocol ProgramGuideForDayViewModelDelegate: class {
     func dataUpdated()
+    func dataRenewed()
 }
 
 final class ProgramGuideForDayViewModel {
@@ -21,10 +22,28 @@ final class ProgramGuideForDayViewModel {
             delegate?.dataUpdated()
         }
     }
+    var currentMinutesFromMidnight: Int {
+        return Date.currentMinutes()
+    }
+
+    var timer: Timer!
+
+    private func scheduleUpdates() {
+        let components = Calendar.current.dateComponents([.second], from: Date())
+        let secondsTilNextMinute = (60 - components.second!) % 60
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(secondsTilNextMinute)) {
+            self.delegate?.dataRenewed()
+            self.timer = Timer.scheduledTimer(withTimeInterval: 60,
+                                              repeats: true) { [weak self] _ in
+                                                self?.delegate?.dataRenewed()
+            }
+        }
+    }
 
     init(dataModel: ProgramGuideService, delegate: ProgramGuideForDayViewModelDelegate?) {
         self.dataModel = dataModel
         self.delegate = delegate
+        scheduleUpdates()
     }
 
     func load() {

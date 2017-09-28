@@ -17,3 +17,7 @@ struct Sizes {
     static let minuteWidth: CGFloat = 10
     static let dayWidth = minuteWidth * CGFloat(Durations.dayInMinutes)
 }
+
+enum SupplementaryViews: String {
+    case now = "NowSupplementaryView"
+}
