@@ -13,7 +13,7 @@ struct Durations {
 }
 
 struct Sizes {
-    static let channelHeight: CGFloat = 100
+    static let channelHeight: CGFloat = 120
     static let minuteWidth: CGFloat = 10
     static let dayWidth = minuteWidth * CGFloat(Durations.dayInMinutes)
 }

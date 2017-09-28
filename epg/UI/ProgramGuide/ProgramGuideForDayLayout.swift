@@ -54,8 +54,9 @@ class ProgramGuideForDayLayout: UICollectionViewLayout {
                                                         layout: self,
                                                         dimensionForScheduleAtIndexPath: indexPath)
                 let frame = CGRect(x: dimension.0, y: yOffset, width: dimension.1, height: cellHeight)
-
-                let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
+                let attributes = ProgramGuideForDayLayoutAttributes(forCellWith: indexPath)
+                let point = CGPoint(x: xPositionForNowView, y: yOffset)
+                attributes.isNow = frame.contains(point)
                 attributes.frame = frame
                 cache.append(attributes)
             }

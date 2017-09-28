@@ -21,4 +21,13 @@ class ProgramCell: UICollectionViewCell {
             layer.borderWidth = 1
         }
     }
+
+    override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
+        super.apply(layoutAttributes)
+
+        if let attributes = layoutAttributes as? ProgramGuideForDayLayoutAttributes {
+            let colorName = attributes.isNow ? "nowProgramBackground" : "ProgramBackground"
+            self.backgroundColor = UIColor(named: colorName)!
+        }
+    }
 }
