@@ -14,4 +14,11 @@ class ChannelHeaderSupplementaryView: UICollectionReusableView {
     override func prepareForReuse() {
         imageView.cancelSetImageFromURL()
     }
+
+    override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
+        super.apply(layoutAttributes)
+        
+        layer.borderColor = UIColor(named: "SubtitleGray")!.cgColor
+        layer.borderWidth = 1
+    }
 }
