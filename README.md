@@ -5,4 +5,4 @@ Loading is inspired by objc.io talk. This approach is easilly extendable and pre
 
 As demo data is generated for GMT+1 there is a workaround with NSTimeZone.default.
 
-In real life we should add caching for images. 
+In real life we should add caching for images, timer invalidation, loading indicating and error handling. 
