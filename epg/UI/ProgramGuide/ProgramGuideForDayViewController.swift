@@ -17,8 +17,8 @@ class ProgramGuideForDayViewController: UICollectionViewController {
         super.viewDidLoad()
 
         collectionView?.register(NowSupplementaryView.self,
-                                 forSupplementaryViewOfKind: "NowSupplementaryView",
-                                 withReuseIdentifier: "NowSupplementaryView")
+                                 forSupplementaryViewOfKind: SupplementaryViews.now.rawValue,
+                                 withReuseIdentifier: SupplementaryViews.now.rawValue)
 
         if let layout = collectionView?.collectionViewLayout as? ProgramGuideForDayLayout {
             layout.delegate = self
