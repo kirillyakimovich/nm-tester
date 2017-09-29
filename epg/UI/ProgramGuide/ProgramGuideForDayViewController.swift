@@ -69,6 +69,17 @@ class ProgramGuideForDayViewController: UIViewController, UICollectionViewDataSo
 
         return supplementaryView
     }
+    
+    @IBAction func nowButtonPressed(_ sender: Any) {
+        guard let nowXOffset = collectionView.layoutAttributesForSupplementaryElement(ofKind: SupplementaryViews.now.rawValue,
+                                                                                      at: IndexPath(item: 0, section: 0)) else {
+                                                                                        return }
+        let targetX = nowXOffset.frame.origin.x
+        // let's make UIKit work for us
+        if let targetIndexPath = collectionView.indexPathForItem(at: CGPoint(x: targetX, y: 0)) {
+            collectionView.scrollToItem(at: targetIndexPath, at: .centeredHorizontally, animated: true)
+        }
+    }
 }
 
 extension ProgramGuideForDayViewController: ProgramGuideForDayLayoutDelegate {
