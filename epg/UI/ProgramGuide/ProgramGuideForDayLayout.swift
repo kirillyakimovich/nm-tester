@@ -55,18 +55,18 @@ class ProgramGuideForDayLayout: UICollectionViewLayout {
             return cellAttributes
         }
 
+        let headerWidth = Sizes.channelHeaderWidth
         let indexPath = IndexPath(row: 0, section: 0)
         let nowAttributes = UICollectionViewLayoutAttributes(forSupplementaryViewOfKind: SupplementaryViews.now.rawValue,
                                                              with: indexPath)
         let xPositionForNowView = delegate.collectionView(collectionView,
                                                           layout: self,
-                                                          xPositionForNowSupplementaryViewAtIndexPath: indexPath)
+                                                          xPositionForNowSupplementaryViewAtIndexPath: indexPath) + headerWidth
         nowAttributes.frame = CGRect(x: xPositionForNowView, y: 0, width: 2, height: height)
         nowAttributes.zIndex = 1
         supplementaryAttributesCache[SupplementaryViews.now.rawValue] = [indexPath: nowAttributes]
 
         var yOffset: CGFloat = 0
-        let headerWidth = Sizes.channelHeaderWidth
         var headers = [IndexPath: UICollectionViewLayoutAttributes]()
         for channel in 0..<collectionView.numberOfSections {
             let headerIndexPath = IndexPath(item: 0, section: channel)
