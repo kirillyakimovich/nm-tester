@@ -13,6 +13,7 @@
 		EB3C3AB41F7BE33B00A2C4DC /* ProgramGuideForDayLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3C3AB31F7BE33B00A2C4DC /* ProgramGuideForDayLayout.swift */; };
 		EB3C3AB61F7BE35800A2C4DC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3C3AB51F7BE35800A2C4DC /* Constants.swift */; };
 		EB47A1471F7D307F00E3A2B1 /* ProgramGuideForDayLayoutAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB47A1461F7D307F00E3A2B1 /* ProgramGuideForDayLayoutAttributes.swift */; };
+		EB5A3C641F7E3921008A7F18 /* ChannelHeaderSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5A3C631F7E3921008A7F18 /* ChannelHeaderSupplementaryView.swift */; };
 		EB6E9D4C1F7BFFB1004F8C83 /* ChannelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6E9D4B1F7BFFB1004F8C83 /* ChannelViewModel.swift */; };
 		EB6F3E011F7A71C300E1C233 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6F3E001F7A71C300E1C233 /* AppCoordinator.swift */; };
 		EB6F3E031F7A71E000E1C233 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6F3E021F7A71E000E1C233 /* Coordinator.swift */; };
@@ -43,6 +44,7 @@
 		EB3C3AB31F7BE33B00A2C4DC /* ProgramGuideForDayLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgramGuideForDayLayout.swift; sourceTree = "<group>"; };
 		EB3C3AB51F7BE35800A2C4DC /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		EB47A1461F7D307F00E3A2B1 /* ProgramGuideForDayLayoutAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramGuideForDayLayoutAttributes.swift; sourceTree = "<group>"; };
+		EB5A3C631F7E3921008A7F18 /* ChannelHeaderSupplementaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelHeaderSupplementaryView.swift; sourceTree = "<group>"; };
 		EB6E9D4B1F7BFFB1004F8C83 /* ChannelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelViewModel.swift; sourceTree = "<group>"; };
 		EB6F3E001F7A71C300E1C233 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		EB6F3E021F7A71E000E1C233 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				EB47A1451F7D2F6F00E3A2B1 /* ViewModels */,
 				EBE6A09A1F795184001F643E /* ProgramCell.swift */,
 				EB1AD5B21F7CF50B00BD7290 /* NowSupplementaryView.swift */,
+				EB5A3C631F7E3921008A7F18 /* ChannelHeaderSupplementaryView.swift */,
 				EB47A1461F7D307F00E3A2B1 /* ProgramGuideForDayLayoutAttributes.swift */,
 				EB3C3AB31F7BE33B00A2C4DC /* ProgramGuideForDayLayout.swift */,
 				EBE6A0981F7950B8001F643E /* ProgramGuideForDayViewController.swift */,
@@ -303,6 +306,7 @@
 				EBE6A0891F793E8F001F643E /* Resource.swift in Sources */,
 				EB47A1471F7D307F00E3A2B1 /* ProgramGuideForDayLayoutAttributes.swift in Sources */,
 				EBE6A0911F79447B001F643E /* ActivityIndicator.swift in Sources */,
+				EB5A3C641F7E3921008A7F18 /* ChannelHeaderSupplementaryView.swift in Sources */,
 				EBE6A09B1F795184001F643E /* ProgramCell.swift in Sources */,
 				EBE6A08B1F793F58001F643E /* Webloader.swift in Sources */,
 				EBE6A0991F7950B8001F643E /* ProgramGuideForDayViewController.swift in Sources */,

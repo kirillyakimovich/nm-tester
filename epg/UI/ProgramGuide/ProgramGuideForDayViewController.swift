@@ -20,6 +20,10 @@ class ProgramGuideForDayViewController: UICollectionViewController {
                                  forSupplementaryViewOfKind: SupplementaryViews.now.rawValue,
                                  withReuseIdentifier: SupplementaryViews.now.rawValue)
 
+        collectionView?.register(ChannelHeaderSupplementaryView.self,
+                                 forSupplementaryViewOfKind: SupplementaryViews.channelHeader.rawValue,
+                                 withReuseIdentifier: SupplementaryViews.channelHeader.rawValue)
+
         if let layout = collectionView?.collectionViewLayout as? ProgramGuideForDayLayout {
             layout.delegate = self
         }
@@ -52,11 +56,13 @@ class ProgramGuideForDayViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView,
                                  viewForSupplementaryElementOfKind kind: String,
                                  at indexPath: IndexPath) -> UICollectionReusableView {
-        let supplementaryView = collectionView.dequeueReusableSupplementaryView(ofKind: SupplementaryViews.now.rawValue,
-                                                                                withReuseIdentifier: SupplementaryViews.now.rawValue,
+        let supplementaryView = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
+                                                                                withReuseIdentifier: kind,
                                                                                 for: indexPath)
         if let nowView = supplementaryView as? NowSupplementaryView {
             nowView.backgroundColor = UIColor(named: "Now")
+        } else if let headerView = supplementaryView as? ChannelHeaderSupplementaryView {
+            headerView.backgroundColor = UIColor(named: "headerBackground")
         }
 
         return supplementaryView
