@@ -14,10 +14,12 @@ struct Durations {
 
 struct Sizes {
     static let channelHeight: CGFloat = 120
+    static let channelHeaderWidth: CGFloat = 120
     static let minuteWidth: CGFloat = 10
     static let dayWidth = minuteWidth * CGFloat(Durations.dayInMinutes)
 }
 
 enum SupplementaryViews: String {
     case now = "NowSupplementaryView"
+    case channelHeader = "ChannelHeaderSupplementaryView"
 }

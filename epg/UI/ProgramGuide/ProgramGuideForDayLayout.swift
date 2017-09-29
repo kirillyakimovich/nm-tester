@@ -20,7 +20,7 @@ protocol ProgramGuideForDayLayoutDelegate: class {
 class ProgramGuideForDayLayout: UICollectionViewLayout {
     weak var delegate: ProgramGuideForDayLayoutDelegate?
 
-    private var cellsAttributesCache = [UICollectionViewLayoutAttributes]()
+    private var cellsAttributesCache = [IndexPath: ProgramGuideForDayLayoutAttributes]()
     private var supplementaryAttributesCache = [String: [IndexPath: UICollectionViewLayoutAttributes]]()
     private var contentSize: CGSize = CGSize(width: 0, height: 0)
 
@@ -33,8 +33,27 @@ class ProgramGuideForDayLayout: UICollectionViewLayout {
         let rowHeight = Sizes.channelHeight
         let height = CGFloat(collectionView.numberOfSections) * rowHeight
         let width = Sizes.dayWidth + Sizes.channelHeaderWidth
-
         contentSize = CGSize(width: width, height: height)
+
+        // internal function in this scope to have acces to delegate and collection view
+        func _cellAttributes(for indexPath: IndexPath,
+                             xOffset: CGFloat,
+                             yOffset: CGFloat) -> ProgramGuideForDayLayoutAttributes {
+            let cachedAttributes = cellsAttributesCache[indexPath]
+            guard cachedAttributes == nil else { return cachedAttributes! }
+
+            let cellAttributes = ProgramGuideForDayLayoutAttributes(forCellWith: indexPath)
+            let dimension = delegate.collectionView(collectionView,
+                                                    layout: self,
+                                                    dimensionForScheduleAtIndexPath: indexPath)
+            let frame = CGRect(x: xOffset + dimension.0,
+                               y: yOffset,
+                               width: dimension.1,
+                               height: rowHeight)
+            cellAttributes.frame = frame
+
+            return cellAttributes
+        }
 
         let indexPath = IndexPath(row: 0, section: 0)
         let nowAttributes = UICollectionViewLayoutAttributes(forSupplementaryViewOfKind: SupplementaryViews.now.rawValue,
@@ -47,6 +66,7 @@ class ProgramGuideForDayLayout: UICollectionViewLayout {
         supplementaryAttributesCache[SupplementaryViews.now.rawValue] = [indexPath: nowAttributes]
 
         var yOffset: CGFloat = 0
+        let headerWidth = Sizes.channelHeaderWidth
         var headers = [IndexPath: UICollectionViewLayoutAttributes]()
         for channel in 0..<collectionView.numberOfSections {
             let headerIndexPath = IndexPath(item: 0, section: channel)
@@ -54,28 +74,20 @@ class ProgramGuideForDayLayout: UICollectionViewLayout {
                                                                     with: headerIndexPath)
             let headerFrame = CGRect(x: collectionView.contentOffset.x,
                                      y: yOffset,
-                                     width: Sizes.channelHeaderWidth,
+                                     width: headerWidth,
                                      height: rowHeight)
             headerAttributes.zIndex = 2
             headerAttributes.frame = headerFrame
             headers[headerIndexPath] = headerAttributes
 
-            let xOffset: CGFloat = Sizes.channelHeaderWidth
+            let xOffset = headerWidth
+
             for schedule in 0..<collectionView.numberOfItems(inSection: channel) {
-                let cellHeight = rowHeight
                 let indexPath = IndexPath(row: schedule, section: channel)
-                let dimension = delegate.collectionView(collectionView,
-                                                        layout: self,
-                                                        dimensionForScheduleAtIndexPath: indexPath)
-                let cellAttributes = ProgramGuideForDayLayoutAttributes(forCellWith: indexPath)
-                let frame = CGRect(x: xOffset + dimension.0,
-                                   y: yOffset,
-                                   width: dimension.1,
-                                   height: cellHeight)
-                cellAttributes.frame = frame
+                let cellAttributes = _cellAttributes(for: indexPath, xOffset: xOffset, yOffset: yOffset)
                 let point = CGPoint(x: xPositionForNowView, y: yOffset)
-                cellAttributes.isNow = frame.contains(point)
-                cellsAttributesCache.append(cellAttributes)
+                cellAttributes.isNow = cellAttributes.frame.contains(point)
+                cellsAttributesCache[indexPath] = cellAttributes
             }
 
             yOffset += rowHeight
@@ -90,7 +102,7 @@ class ProgramGuideForDayLayout: UICollectionViewLayout {
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         var visibleLayoutAttributes = [UICollectionViewLayoutAttributes]()
 
-        for attributes in cellsAttributesCache {
+        for attributes in cellsAttributesCache.values {
             if attributes.frame.intersects(rect) {
                 visibleLayoutAttributes.append(attributes)
             }
@@ -120,7 +132,7 @@ class ProgramGuideForDayLayout: UICollectionViewLayout {
     }
 
     override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
-        return cellsAttributesCache[indexPath.item]
+        return cellsAttributesCache[indexPath]
     }
 
     override func layoutAttributesForSupplementaryView(ofKind elementKind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
