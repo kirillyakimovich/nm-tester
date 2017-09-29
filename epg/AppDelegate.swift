@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private var appCoordinator: AppCoordinator!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        setUpAppearance()
         NSTimeZone.default = TimeZone(secondsFromGMT: 60 * 60)!
         window = UIWindow()
         window!.rootViewController = navigationController
@@ -29,5 +30,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window!.makeKeyAndVisible()
 
         return true
+    }
+
+    func setUpAppearance() {
+        UINavigationBar.appearance().isTranslucent = false
+        UINavigationBar.appearance().barTintColor = UIColor(named: "ProgramBackground")
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor(named: "Now")!]
     }
 }
