@@ -19,8 +19,8 @@ class ProgramGuideForDayViewController: UIViewController, UICollectionViewDataSo
         super.viewDidLoad()
         title = "NM"
         collectionView.register(NowSupplementaryView.self,
-                                 forSupplementaryViewOfKind: SupplementaryViews.now.rawValue,
-                                 withReuseIdentifier: SupplementaryViews.now.rawValue)
+                                forSupplementaryViewOfKind: SupplementaryViews.now.rawValue,
+                                withReuseIdentifier: SupplementaryViews.now.rawValue)
 
         let nib = UINib(nibName: SupplementaryViews.channelHeader.rawValue, bundle: nil)
         collectionView.register(nib, forSupplementaryViewOfKind: SupplementaryViews.channelHeader.rawValue, withReuseIdentifier: SupplementaryViews.channelHeader.rawValue)
@@ -42,7 +42,7 @@ class ProgramGuideForDayViewController: UIViewController, UICollectionViewDataSo
     }
 
     func collectionView(_ collectionView: UICollectionView,
-                                 cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier,
                                                       for: indexPath)
 
@@ -55,8 +55,8 @@ class ProgramGuideForDayViewController: UIViewController, UICollectionViewDataSo
     }
 
     func collectionView(_ collectionView: UICollectionView,
-                                 viewForSupplementaryElementOfKind kind: String,
-                                 at indexPath: IndexPath) -> UICollectionReusableView {
+                        viewForSupplementaryElementOfKind kind: String,
+                        at indexPath: IndexPath) -> UICollectionReusableView {
         let supplementaryView = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
                                                                                 withReuseIdentifier: kind,
                                                                                 for: indexPath)
@@ -71,8 +71,9 @@ class ProgramGuideForDayViewController: UIViewController, UICollectionViewDataSo
     }
     
     @IBAction func nowButtonPressed(_ sender: Any) {
-        guard let nowXOffset = collectionView.layoutAttributesForSupplementaryElement(ofKind: SupplementaryViews.now.rawValue,
-                                                                                      at: IndexPath(item: 0, section: 0)) else {
+        guard collectionView.numberOfSections > 0,
+            let nowXOffset = collectionView.layoutAttributesForSupplementaryElement(ofKind: SupplementaryViews.now.rawValue,
+                                                                                    at: IndexPath(item: 0, section: 0)) else {
                                                                                         return }
         let targetX = nowXOffset.frame.origin.x
         // let's make UIKit work for us
@@ -87,7 +88,7 @@ extension ProgramGuideForDayViewController: ProgramGuideForDayLayoutDelegate {
                         layout: ProgramGuideForDayLayout,
                         dimensionForScheduleAtIndexPath indexPath: IndexPath) -> (CGFloat, CGFloat) {
         let itemViewModel = viewModel.program(for: indexPath.section,
-                                          at: indexPath.row)
+                                              at: indexPath.row)
         return (CGFloat(itemViewModel.startInMinutes) * Sizes.minuteWidth, CGFloat(itemViewModel.durationInMinutes) * Sizes.minuteWidth)
     }
 
