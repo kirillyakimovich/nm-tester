@@ -10,21 +10,23 @@ import UIKit
 
 private let reuseIdentifier = "ProgramCell"
 
-class ProgramGuideForDayViewController: UICollectionViewController {
+class ProgramGuideForDayViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+
+    @IBOutlet var collectionView: UICollectionView!
     var viewModel: ProgramGuideForDayViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        collectionView?.register(NowSupplementaryView.self,
+        collectionView.register(NowSupplementaryView.self,
                                  forSupplementaryViewOfKind: SupplementaryViews.now.rawValue,
                                  withReuseIdentifier: SupplementaryViews.now.rawValue)
 
-        collectionView?.register(ChannelHeaderSupplementaryView.self,
+        collectionView.register(ChannelHeaderSupplementaryView.self,
                                  forSupplementaryViewOfKind: SupplementaryViews.channelHeader.rawValue,
                                  withReuseIdentifier: SupplementaryViews.channelHeader.rawValue)
 
-        if let layout = collectionView?.collectionViewLayout as? ProgramGuideForDayLayout {
+        if let layout = collectionView.collectionViewLayout as? ProgramGuideForDayLayout {
             layout.delegate = self
         }
         viewModel.load()
@@ -32,15 +34,15 @@ class ProgramGuideForDayViewController: UICollectionViewController {
 
     // MARK: UICollectionViewDataSource
 
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return viewModel.numberOfChannels
     }
 
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.numberOfProgrammsInChannel(at: section)
     }
 
-    override func collectionView(_ collectionView: UICollectionView,
+    func collectionView(_ collectionView: UICollectionView,
                                  cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier,
                                                       for: indexPath)
@@ -53,7 +55,7 @@ class ProgramGuideForDayViewController: UICollectionViewController {
         return cell
     }
 
-    override func collectionView(_ collectionView: UICollectionView,
+    func collectionView(_ collectionView: UICollectionView,
                                  viewForSupplementaryElementOfKind kind: String,
                                  at indexPath: IndexPath) -> UICollectionReusableView {
         let supplementaryView = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
@@ -88,13 +90,13 @@ extension ProgramGuideForDayViewController: ProgramGuideForDayLayoutDelegate {
 extension ProgramGuideForDayViewController: ProgramGuideForDayViewModelDelegate {
     func dataUpdated() {
         DispatchQueue.main.async {
-            self.collectionView?.reloadData()
+            self.collectionView.reloadData()
         }
     }
 
     func dataRenewed() {
         DispatchQueue.main.async {
-            self.collectionView?.collectionViewLayout.invalidateLayout()
+            self.collectionView.collectionViewLayout.invalidateLayout()
         }
     }
 }

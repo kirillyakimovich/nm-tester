@@ -7,69 +7,89 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Program Guide For Day View Controller-->
-        <scene sceneID="rGL-mP-tM6">
+        <scene sceneID="BiW-XE-OWZ">
             <objects>
-                <collectionViewController storyboardIdentifier="ProgramGuideForDayViewController" id="HzI-Ku-QaE" customClass="ProgramGuideForDayViewController" customModule="epg" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" prefetchingEnabled="NO" id="dYZ-gW-E4W">
+                <viewController storyboardIdentifier="ProgramGuideForDayViewController" id="0UT-hq-hlr" customClass="ProgramGuideForDayViewController" customModule="epg" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eK4-o8-2dg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <collectionViewLayout key="collectionViewLayout" id="Zg2-tA-xPq" customClass="ProgramGuideForDayLayout" customModule="epg" customModuleProvider="target"/>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProgramCell" id="70M-fl-vav" customClass="ProgramCell" customModule="epg" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="162" height="150"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="162" height="150"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3O6-OB-laF">
-                                            <rect key="frame" x="12" y="12" width="138" height="20.5"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RH2-pZ-laV">
-                                            <rect key="frame" x="12" y="44.5" width="138" height="20.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" name="SubtitleGray"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </view>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="3O6-OB-laF" firstAttribute="leading" secondItem="70M-fl-vav" secondAttribute="leadingMargin" constant="12" id="3p6-zz-KSp"/>
-                                    <constraint firstItem="RH2-pZ-laV" firstAttribute="top" secondItem="3O6-OB-laF" secondAttribute="bottom" constant="12" id="KAb-Kz-XrH"/>
-                                    <constraint firstItem="3O6-OB-laF" firstAttribute="top" secondItem="70M-fl-vav" secondAttribute="topMargin" constant="12" id="WIZ-UO-ZGl"/>
-                                    <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="RH2-pZ-laV" secondAttribute="bottom" constant="12" id="eYr-pE-wTZ"/>
-                                    <constraint firstItem="RH2-pZ-laV" firstAttribute="leading" secondItem="70M-fl-vav" secondAttribute="leadingMargin" constant="12" id="wDf-bR-3W3"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="RH2-pZ-laV" secondAttribute="trailing" constant="12" id="xaR-AB-thq"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="3O6-OB-laF" secondAttribute="trailing" constant="12" id="ypA-nf-xQG"/>
-                                </constraints>
-                                <size key="customSize" width="162" height="150"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8f6-jC-fNR">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" name="ProgramBackground"/>
+                                <collectionViewLayout key="collectionViewLayout" id="QpI-B1-WYa" customClass="ProgramGuideForDayLayout" customModule="epg" customModuleProvider="target"/>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProgramCell" id="70M-fl-vav" customClass="ProgramCell" customModule="epg" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="162" height="150"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="162" height="150"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3O6-OB-laF">
+                                                    <rect key="frame" x="12" y="12" width="138" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RH2-pZ-laV">
+                                                    <rect key="frame" x="12" y="44.5" width="138" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" name="SubtitleGray"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="3O6-OB-laF" firstAttribute="leading" secondItem="70M-fl-vav" secondAttribute="leadingMargin" constant="12" id="3p6-zz-KSp"/>
+                                            <constraint firstItem="RH2-pZ-laV" firstAttribute="top" secondItem="3O6-OB-laF" secondAttribute="bottom" constant="12" id="KAb-Kz-XrH"/>
+                                            <constraint firstItem="3O6-OB-laF" firstAttribute="top" secondItem="70M-fl-vav" secondAttribute="topMargin" constant="12" id="WIZ-UO-ZGl"/>
+                                            <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="RH2-pZ-laV" secondAttribute="bottom" constant="12" id="eYr-pE-wTZ"/>
+                                            <constraint firstItem="RH2-pZ-laV" firstAttribute="leading" secondItem="70M-fl-vav" secondAttribute="leadingMargin" constant="12" id="wDf-bR-3W3"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="RH2-pZ-laV" secondAttribute="trailing" constant="12" id="xaR-AB-thq"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="3O6-OB-laF" secondAttribute="trailing" constant="12" id="ypA-nf-xQG"/>
+                                        </constraints>
+                                        <size key="customSize" width="162" height="150"/>
+                                        <connections>
+                                            <outlet property="scheduleLabel" destination="RH2-pZ-laV" id="3eO-oH-tDa"/>
+                                            <outlet property="titleLabel" destination="3O6-OB-laF" id="7di-I8-TZO"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
                                 <connections>
-                                    <outlet property="scheduleLabel" destination="RH2-pZ-laV" id="3eO-oH-tDa"/>
-                                    <outlet property="titleLabel" destination="3O6-OB-laF" id="7di-I8-TZO"/>
+                                    <outlet property="dataSource" destination="0UT-hq-hlr" id="FYT-Zj-rxg"/>
+                                    <outlet property="delegate" destination="0UT-hq-hlr" id="NlJ-SO-68B"/>
                                 </connections>
-                            </collectionViewCell>
-                        </cells>
-                        <connections>
-                            <outlet property="dataSource" destination="HzI-Ku-QaE" id="tx8-E4-YlW"/>
-                            <outlet property="delegate" destination="HzI-Ku-QaE" id="1xn-hw-dkv"/>
-                        </connections>
-                    </collectionView>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SmT-gz-YJj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="NLP-bI-1FF" firstAttribute="trailing" secondItem="8f6-jC-fNR" secondAttribute="trailing" id="2E9-N1-grE"/>
+                            <constraint firstItem="8f6-jC-fNR" firstAttribute="leading" secondItem="NLP-bI-1FF" secondAttribute="leading" id="IKH-ib-1FX"/>
+                            <constraint firstItem="NLP-bI-1FF" firstAttribute="bottom" secondItem="8f6-jC-fNR" secondAttribute="bottom" id="bey-LJ-gQH"/>
+                            <constraint firstItem="8f6-jC-fNR" firstAttribute="top" secondItem="NLP-bI-1FF" secondAttribute="top" id="gBl-Zg-Ag3"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="NLP-bI-1FF"/>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="8f6-jC-fNR" id="Vtk-mU-hiQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1aL-vl-uS9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-391" y="-59"/>
+            <point key="canvasLocation" x="-1049" y="-57"/>
         </scene>
     </scenes>
     <resources>
+        <namedColor name="ProgramBackground">
+            <color red="0.067000001668930054" green="0.067000001668930054" blue="0.067000001668930054" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="SubtitleGray">
             <color red="0.61599999666213989" green="0.61599999666213989" blue="0.61599999666213989" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
