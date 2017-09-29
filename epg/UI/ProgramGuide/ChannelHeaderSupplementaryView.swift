@@ -9,5 +9,9 @@
 import UIKit
 
 class ChannelHeaderSupplementaryView: UICollectionReusableView {
-        
+    @IBOutlet weak var imageView: UIImageView!
+
+    override func prepareForReuse() {
+        imageView.cancelSetImageFromURL()
+    }
 }

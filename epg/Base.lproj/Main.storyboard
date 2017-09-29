@@ -87,6 +87,7 @@
                             <constraint firstItem="8f6-jC-fNR" firstAttribute="leading" secondItem="NLP-bI-1FF" secondAttribute="leading" id="IKH-ib-1FX"/>
                             <constraint firstItem="NLP-bI-1FF" firstAttribute="bottom" secondItem="enP-ko-Nu2" secondAttribute="bottom" constant="16" id="MxP-ae-ehX"/>
                             <constraint firstItem="NLP-bI-1FF" firstAttribute="bottom" secondItem="8f6-jC-fNR" secondAttribute="bottom" id="bey-LJ-gQH"/>
+                            <constraint firstItem="enP-ko-Nu2" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="eK4-o8-2dg" secondAttribute="leading" constant="20" symbolic="YES" id="cPy-E6-1CR"/>
                             <constraint firstItem="8f6-jC-fNR" firstAttribute="top" secondItem="NLP-bI-1FF" secondAttribute="top" id="gBl-Zg-Ag3"/>
                             <constraint firstItem="NLP-bI-1FF" firstAttribute="trailing" secondItem="enP-ko-Nu2" secondAttribute="trailing" constant="16" id="mhI-X4-mld"/>
                         </constraints>

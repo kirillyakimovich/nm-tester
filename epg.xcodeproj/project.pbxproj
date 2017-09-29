@@ -14,11 +14,13 @@
 		EB3C3AB61F7BE35800A2C4DC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3C3AB51F7BE35800A2C4DC /* Constants.swift */; };
 		EB47A1471F7D307F00E3A2B1 /* ProgramGuideForDayLayoutAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB47A1461F7D307F00E3A2B1 /* ProgramGuideForDayLayoutAttributes.swift */; };
 		EB5A3C641F7E3921008A7F18 /* ChannelHeaderSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5A3C631F7E3921008A7F18 /* ChannelHeaderSupplementaryView.swift */; };
+		EB5A3C661F7E7DC1008A7F18 /* ChannelHeaderSupplementaryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB5A3C651F7E7DC1008A7F18 /* ChannelHeaderSupplementaryView.xib */; };
 		EB6E9D4C1F7BFFB1004F8C83 /* ChannelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6E9D4B1F7BFFB1004F8C83 /* ChannelViewModel.swift */; };
 		EB6F3E011F7A71C300E1C233 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6F3E001F7A71C300E1C233 /* AppCoordinator.swift */; };
 		EB6F3E031F7A71E000E1C233 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6F3E021F7A71E000E1C233 /* Coordinator.swift */; };
 		EB6F3E071F7A77A800E1C233 /* AppSettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6F3E061F7A77A800E1C233 /* AppSettingsService.swift */; };
 		EB8CACDF1F7A82A00012E372 /* ProgramGuideRESTService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8CACDE1F7A82A00012E372 /* ProgramGuideRESTService.swift */; };
+		EB92FF751F7E805600008655 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB92FF741F7E805600008655 /* UIImageView.swift */; };
 		EBD4FC0B1F7956EB003F869B /* ProgramGuideForDayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD4FC0A1F7956EB003F869B /* ProgramGuideForDayViewModel.swift */; };
 		EBE6A0651F7928ED001F643E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE6A0641F7928ED001F643E /* AppDelegate.swift */; };
 		EBE6A06A1F7928ED001F643E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBE6A0681F7928ED001F643E /* Main.storyboard */; };
@@ -45,11 +47,13 @@
 		EB3C3AB51F7BE35800A2C4DC /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		EB47A1461F7D307F00E3A2B1 /* ProgramGuideForDayLayoutAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramGuideForDayLayoutAttributes.swift; sourceTree = "<group>"; };
 		EB5A3C631F7E3921008A7F18 /* ChannelHeaderSupplementaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelHeaderSupplementaryView.swift; sourceTree = "<group>"; };
+		EB5A3C651F7E7DC1008A7F18 /* ChannelHeaderSupplementaryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChannelHeaderSupplementaryView.xib; sourceTree = "<group>"; };
 		EB6E9D4B1F7BFFB1004F8C83 /* ChannelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelViewModel.swift; sourceTree = "<group>"; };
 		EB6F3E001F7A71C300E1C233 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		EB6F3E021F7A71E000E1C233 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		EB6F3E061F7A77A800E1C233 /* AppSettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsService.swift; sourceTree = "<group>"; };
 		EB8CACDE1F7A82A00012E372 /* ProgramGuideRESTService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramGuideRESTService.swift; sourceTree = "<group>"; };
+		EB92FF741F7E805600008655 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		EBD4FC0A1F7956EB003F869B /* ProgramGuideForDayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramGuideForDayViewModel.swift; sourceTree = "<group>"; };
 		EBE6A0611F7928ED001F643E /* epg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = epg.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBE6A0641F7928ED001F643E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +90,7 @@
 			children = (
 				EB2D4C991F7BFEAC000C52CA /* Date.swift */,
 				EB2D4C9B1F7BFED3000C52CA /* DateFormatter.swift */,
+				EB92FF741F7E805600008655 /* UIImageView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -97,6 +102,7 @@
 				EBE6A09A1F795184001F643E /* ProgramCell.swift */,
 				EB1AD5B21F7CF50B00BD7290 /* NowSupplementaryView.swift */,
 				EB5A3C631F7E3921008A7F18 /* ChannelHeaderSupplementaryView.swift */,
+				EB5A3C651F7E7DC1008A7F18 /* ChannelHeaderSupplementaryView.xib */,
 				EB47A1461F7D307F00E3A2B1 /* ProgramGuideForDayLayoutAttributes.swift */,
 				EB3C3AB31F7BE33B00A2C4DC /* ProgramGuideForDayLayout.swift */,
 				EBE6A0981F7950B8001F643E /* ProgramGuideForDayViewController.swift */,
@@ -273,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBE6A06F1F7928ED001F643E /* LaunchScreen.storyboard in Resources */,
+				EB5A3C661F7E7DC1008A7F18 /* ChannelHeaderSupplementaryView.xib in Resources */,
 				EBE6A06C1F7928ED001F643E /* Assets.xcassets in Resources */,
 				EBE6A06A1F7928ED001F643E /* Main.storyboard in Resources */,
 			);
@@ -301,6 +308,7 @@
 				EB1AD5B31F7CF50B00BD7290 /* NowSupplementaryView.swift in Sources */,
 				EB6F3E011F7A71C300E1C233 /* AppCoordinator.swift in Sources */,
 				EBD4FC0B1F7956EB003F869B /* ProgramGuideForDayViewModel.swift in Sources */,
+				EB92FF751F7E805600008655 /* UIImageView.swift in Sources */,
 				EBE6A0821F793B0F001F643E /* ProgramGuide.swift in Sources */,
 				EB6E9D4C1F7BFFB1004F8C83 /* ChannelViewModel.swift in Sources */,
 				EBE6A0891F793E8F001F643E /* Resource.swift in Sources */,

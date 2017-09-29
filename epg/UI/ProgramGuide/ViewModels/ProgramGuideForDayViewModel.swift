@@ -50,7 +50,8 @@ final class ProgramGuideForDayViewModel {
         dataModel.programGuide { [weak self] guide in
             self?.channelViewModels = guide?.channels.flatMap {
                 let programViewModels = $0.schedules.flatMap { ProgramCellViewModel(schedule: $0) }
-                return ChannelViewModel(programViewModels: programViewModels)
+                return ChannelViewModel(logoURL: $0.logoURL,
+                                        programViewModels: programViewModels)
             }
         }
     }
@@ -62,6 +63,11 @@ final class ProgramGuideForDayViewModel {
     func numberOfProgrammsInChannel(at index: Int) -> Int {
         guard let channelViewModels = channelViewModels else { return 0 }
         return channelViewModels[index].programViewModels.count
+    }
+
+    func logoURL(for channel: Int) -> URL? {
+        guard let channelViewModels = channelViewModels else { fatalError() }
+        return channelViewModels[channel].logoURL
     }
 
     func program(for channel: Int, at index: Int) -> ProgramCellViewModel {

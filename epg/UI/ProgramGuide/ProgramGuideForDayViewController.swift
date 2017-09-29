@@ -17,14 +17,13 @@ class ProgramGuideForDayViewController: UIViewController, UICollectionViewDataSo
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        title = "NM"
         collectionView.register(NowSupplementaryView.self,
                                  forSupplementaryViewOfKind: SupplementaryViews.now.rawValue,
                                  withReuseIdentifier: SupplementaryViews.now.rawValue)
 
-        collectionView.register(ChannelHeaderSupplementaryView.self,
-                                 forSupplementaryViewOfKind: SupplementaryViews.channelHeader.rawValue,
-                                 withReuseIdentifier: SupplementaryViews.channelHeader.rawValue)
+        let nib = UINib(nibName: SupplementaryViews.channelHeader.rawValue, bundle: nil)
+        collectionView.register(nib, forSupplementaryViewOfKind: SupplementaryViews.channelHeader.rawValue, withReuseIdentifier: SupplementaryViews.channelHeader.rawValue)
 
         if let layout = collectionView.collectionViewLayout as? ProgramGuideForDayLayout {
             layout.delegate = self
@@ -65,6 +64,7 @@ class ProgramGuideForDayViewController: UIViewController, UICollectionViewDataSo
             nowView.backgroundColor = UIColor(named: "Now")
         } else if let headerView = supplementaryView as? ChannelHeaderSupplementaryView {
             headerView.backgroundColor = UIColor(named: "headerBackground")
+            headerView.imageView.setImage(from: viewModel.logoURL(for: indexPath.section))
         }
 
         return supplementaryView

@@ -9,5 +9,6 @@
 import Foundation
 
 struct ChannelViewModel {
+    let logoURL: URL
     let programViewModels: [ProgramCellViewModel]
 }
