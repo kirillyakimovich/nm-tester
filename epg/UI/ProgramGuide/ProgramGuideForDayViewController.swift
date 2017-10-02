@@ -14,7 +14,7 @@ class ProgramGuideForDayViewController: UIViewController, UICollectionViewDataSo
 
     @IBOutlet var collectionView: UICollectionView!
     var viewModel: ProgramGuideForDayViewModel!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "NM"
@@ -29,6 +29,15 @@ class ProgramGuideForDayViewController: UIViewController, UICollectionViewDataSo
             layout.delegate = self
         }
         viewModel.load()
+    }
+
+    private var shoulScrollToNowRect = true
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if shoulScrollToNowRect {
+            shoulScrollToNowRect = false
+            scrollToNowRect()
+        }
     }
 
     // MARK: UICollectionViewDataSource
@@ -69,8 +78,8 @@ class ProgramGuideForDayViewController: UIViewController, UICollectionViewDataSo
 
         return supplementaryView
     }
-    
-    @IBAction func nowButtonPressed(_ sender: Any) {
+
+    func scrollToNowRect() {
         guard collectionView.numberOfSections > 0,
             let nowXOffset = collectionView.layoutAttributesForSupplementaryElement(ofKind: SupplementaryViews.now.rawValue,
                                                                                     at: IndexPath(item: 0, section: 0)) else {
@@ -84,7 +93,10 @@ class ProgramGuideForDayViewController: UIViewController, UICollectionViewDataSo
                                 height: collectionView.bounds.height)
 
         collectionView.scrollRectToVisible(targetRect, animated: true)
-
+    }
+    
+    @IBAction func nowButtonPressed(_ sender: Any) {
+        scrollToNowRect()
     }
 }
 
@@ -108,6 +120,7 @@ extension ProgramGuideForDayViewController: ProgramGuideForDayViewModelDelegate 
     func dataUpdated() {
         DispatchQueue.main.async {
             self.collectionView.reloadData()
+            self.shoulScrollToNowRect = true
         }
     }
 
