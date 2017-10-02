@@ -76,10 +76,15 @@ class ProgramGuideForDayViewController: UIViewController, UICollectionViewDataSo
                                                                                     at: IndexPath(item: 0, section: 0)) else {
                                                                                         return }
         let targetX = nowXOffset.frame.origin.x
-        // let's make UIKit work for us
-        if let targetIndexPath = collectionView.indexPathForItem(at: CGPoint(x: targetX, y: 0)) {
-            collectionView.scrollToItem(at: targetIndexPath, at: .centeredHorizontally, animated: true)
-        }
+        let halfWidth = collectionView.bounds.width / 2
+        let newOriginX = max(targetX - halfWidth, 0)
+        let targetRect = CGRect(x: newOriginX,
+                                y: collectionView.contentOffset.y,
+                                width: collectionView.bounds.width,
+                                height: collectionView.bounds.height)
+
+        collectionView.scrollRectToVisible(targetRect, animated: true)
+
     }
 }
 
